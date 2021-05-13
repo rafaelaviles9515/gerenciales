@@ -29,6 +29,7 @@ class CreateRentaGrabadasTable extends Migration
             $table->foreignId('departamento_id')->constrained('departamentos')->onDelete('cascade')->nullable();
             $table->foreignId('clase_id')->constrained('clases')->onDelete('cascade')->nullable();
             $table->foreignId('cartera_id')->constrained('carteras')->onDelete('cascade')->nullable();
+            $table->foreignId('actividad_id')->constrained('actividads')->onDelete('cascade')->nullable();
             $table->timestamps();
         });
     }

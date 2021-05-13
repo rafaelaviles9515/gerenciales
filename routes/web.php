@@ -24,3 +24,6 @@ Route::get('/index', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//para renta gravada
+Route::get('/rentagravada/lista', 'RentaGrabadaController@index')->name('rentagravada.lista');

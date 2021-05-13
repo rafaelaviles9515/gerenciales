@@ -8,6 +8,7 @@
 @section('content')
 
         <h1>Index</h1>
+        <a href="{{route('rentagravada.lista')}}" class="btn btn-success">Lista renta gravada</a>
 @endsection
 
 

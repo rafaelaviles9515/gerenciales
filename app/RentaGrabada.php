@@ -10,21 +10,26 @@ class RentaGrabada extends Model
 
     public function contribuyente()
     {
-    	return $this->hasOne('App\Contribuyente');
+    	return $this->belongsTo('App\Contribuyente');
     }
 
     public function departamento()
     {
-    	return $this->hasOne('App\Departamento');
+    	return $this->belongsTo('App\Departamento');
     }
 
     public function clase()
     {
-    	return $this->hasOne('App\Clase');
+    	return $this->belongsTo('App\Clase');
     }
 
     public function cartera()
     {
-    	return $this->hasOne('App\Cartera');
+    	return $this->belongsTo('App\Cartera');
+    }
+
+    public function actividad()
+    {
+        return $this->belongsTo('App\Actividad');
     }
 }

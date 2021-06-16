@@ -27,3 +27,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //para renta gravada
 Route::get('/rentagravada/lista', 'RentaGrabadaController@index')->name('rentagravada.lista');
+
+
+Route::post('/rentagravada/import', 'RentasGrabadasImportController@store')->name('rentasgravadasimport.store');
+
+//para departamento
+Route::get('/rentagravada/departamento/ano', 'DepartamentoController@ano')->name('departamento.ano');
+
+//para contribuyente
+Route::get('/rentagravada/contribuyente/ano', 'ContribuyenteController@ano')->name('contribuyente.ano');
+Route::post('/rentagravada/contribuyente/reporte', 'ContribuyenteController@reporte')->name('contribuyente.reporte');

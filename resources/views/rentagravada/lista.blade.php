@@ -11,11 +11,17 @@
 
 @section('content')
 		<br>
-		<br>
+		
 		<div class="container">
-			<a href="" class="btn btn-warning">Importar Rentas Gravadas</a>
+			<form action="{{route('rentasgravadasimport.store')}}" method="post" enctype="multipart/form-data">
+			@csrf
+			<div class="form-group">
+				<input type="file" name="file">
+				<button type="submit" class="btn btn-primary">Importar</button>
+			</div>
+			</form>
 		</div>
-		<br>
+		
         <div class="container-xxxl">
 		    @if(session('status'))
 		    <div class="alert alert-success" role="alert">
@@ -31,16 +37,11 @@
 		    
 		 <div class="col-sm-12 mx-auto my-auto">
 		    <div class="card">
-		        <div class="card-header bg-info">
+		        <div class="card-header bg-success">
 		            <div class="row justify-content-between">
 		                    <h5 class="card-title  float-left" style="color: white">Renta Gravadas</h5>
-		                    <a href="#" class="btn btn-success" ><i class="fas fa-plus"></i>
-		                        <span>Agregar
-		                            Renta Gravada</span></a>
-		                    <!-- @if(Auth::user()->rol_id==1)-->
-		                    <!-- @endif -->
-		                </div>
 		            </div>
+		         </div>
 		        
 		        <div class="card-body">
 		            <div class="table-responsive">
@@ -64,7 +65,7 @@
 		                            <th scope="col" >Dividendos</th>
 		                            <th scope="col" >Otros</th>
 		                            <th scope="col" >Total Renta Gravada</th>
-		                            <th scope="col" width="5%">Acciones</th>
+		                            
 		                            
 		                            @if(Auth::user()->rol_id==1)
 		                            @else
@@ -92,12 +93,7 @@
 		                            <td>{{$rentagravada->dividendos}}</td>
 		                            <td>{{$rentagravada->otros}}</td>
 		                            <td>{{$rentagravada->total_renta_gravada}}</td>
-		                            <td class="text-center">
-		                                <a href="" class="btn btn-primary btn-edit btn-sm"
-		                                data-placement="bottom" title="Editar"><i class='fas fa-edit'></i></a>
-		                                <a href=""class="btn btn-danger btn-delete btn-sm"
-		                                data-placement="bottom" title="Eliminar"><i class='fas fa-trash'></i></a>
-		                            </td>
+		                            
 		                            <!--@if(Auth::user()->rol_id==1)-->
 		                            <!--@endif-->                      
 		                        </tr>
@@ -111,7 +107,7 @@
 		            </div>
 		        </div>
 		        </div>
-		    </div>
+		 </div>
 		</div>
 
 @endsection

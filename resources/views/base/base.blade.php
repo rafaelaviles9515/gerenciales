@@ -30,34 +30,67 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav">
-                            <li class="nav-item px-2">
-                                <a href="#" class="nav-link active">Lista</a>
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Administrador Tactico
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{route('rentagravada.lista')}}">Ingresar renta gravada</a></li>
+                                <li><a class="dropdown-item" href="{{route('contribuyente.ano')}}">Contribuyente</a></li>
+                                <li><a class="dropdown-item" href="#">Departamento</a></li>
+                                <li><a class="dropdown-item" href="#">Clase</a></li>
+                                <li><a class="dropdown-item" href="#">Cartera</a></li>
+                                <li><a class="dropdown-item" href="#">Actividad</a></li>
+                              </ul>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Administrador Estrategico
+                              </a>
+                              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Mayor Contribuyente</a></li>
+                                <li><a class="dropdown-item" href="#">Mayor Departamento</a></li>
+                                <li><a class="dropdown-item" href="#">Mayor Cartera</a></li>
+                              </ul>
                             </li>
 
                             <li class="nav-item px-2">
-                                <a href="#" class="nav-link active">Lista1</a>
-                            </li>
-
-                            <li class="nav-item px-2">
-                                <a href="#" class="nav-link active" >Lista2</a>
+                                <a href="#" class="nav-link active" >Registrar Usuario</a>
                             </li>
 
                         </ul>
+                        <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item mr-3">
-                                <a href="#" class="nav-link">
-                                    <i class="fas fa-user"></i>
-                                    <span>Bienvenido:</span>
-                                    <span>Usuario</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <form method="POST">
-                                    <a href="#" onclick="this.parentNode.submit();" class="nav-link">
-                                        <i class="fas fa-user-times"></i>
+                            <!-- Authentication Links -->
+                            @guest
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
                                     </a>
-                                </form>
-                            </li>
+
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
                         </ul>
                     </div>
                 </div>

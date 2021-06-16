@@ -16,6 +16,7 @@ class CreateCarterasTable extends Migration
         Schema::create('carteras', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->double('cantidad', 8, 2)->nullable();
             $table->timestamps();
         });
     }

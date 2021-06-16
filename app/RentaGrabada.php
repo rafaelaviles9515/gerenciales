@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RentaGrabada extends Model
 {
-    protected $fillable=['ano','sueldos','profesiones','servicios','comerciales','','industriales','agropecuarios','dividendos','otros','total_renta_gravada','contribuyente_id','departamento_id','clase_id','cartera_id'];
+    protected $fillable=['ano','sueldos','profesiones','servicios','comerciales','','industriales','agropecuarios','dividendos','otros','total_renta_gravada','contribuyente_id','departamento_id','clase_id','cartera_id','actividad_id'];
 
     public function contribuyente()
     {

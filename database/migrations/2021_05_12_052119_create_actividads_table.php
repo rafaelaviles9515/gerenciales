@@ -16,6 +16,7 @@ class CreateActividadsTable extends Migration
         Schema::create('actividads', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->double('cantidad', 8, 2)->nullable();
             $table->timestamps();
         });
     }
